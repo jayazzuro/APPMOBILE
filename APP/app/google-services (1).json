@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "488493058734",
+    "project_id": "quanao-deead",
+    "storage_bucket": "quanao-deead.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488493058734:android:3ae40f1a1f9c1c80ed7b3f",
+        "android_client_info": {
+          "package_name": "com.example.shopapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs_YsjNZjTYIstMPlLTgpfnzmQIUbin0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
