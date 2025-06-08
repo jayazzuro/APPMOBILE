@@ -9,6 +9,7 @@ router.get("/api/getProductApi", homeController.getProductApi);
 router.get("/api/getTheLoaiApi", homeController.getTheLoaiApi);
 router.get("/api/Search", homeController.Search);
 router.get("/api/profileApi/:id", homeController.profileApi);
+
 router.get(
   "/api/productUploadApi",
   upload.single("image"),
@@ -18,5 +19,6 @@ router.get(
 // POST
 router.post("/api/loginApi", homeController.loginApi);
 router.post("/api/registerApi", homeController.registerApi);
+router.post("/api/changePasswordApi/:id", homeController.changePasswordApi);
 
 module.exports = router;

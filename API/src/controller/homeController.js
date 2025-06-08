@@ -167,6 +167,30 @@ const profileApi = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+// API CHANGE PASSWORD
+const changePasswordApi = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { curPass, newPass, RenewPass } = req.body;
+    const [rows] = await connection.query(
+      `SELECT passWord FROM khachhang WHERE passWord = ? AND maKH = ?`,
+      [curPass, id]
+    );
+    if (rows.length === 0) {
+      return res.json({ error: "Mật khẩu cũ không đúng!" });
+    }
+    if (newPass !== RenewPass) {
+      return res.json({ error: "Mật khẩu mới không khớp!" });
+    }
+    const [rows1] = await connection.query(
+      `UPDATE khachhang SET passWord = ? WHERE maKH = ?`,
+      [RenewPass, id]
+    );
+    res.json({ message: "Đổi mật khẩu thành công!", result: rows1 });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
 
 module.exports = {
   getApi,
@@ -177,4 +201,5 @@ module.exports = {
   getTheLoaiApi,
   Search,
   profileApi,
+  changePasswordApi,
 };
