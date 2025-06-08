@@ -16,6 +16,9 @@
         android:theme="@style/Theme.App"
         tools:targetApi="31">
         <activity
+            android:name=".utils.ChiTietSanPhamActivity"
+            android:exported="false" />
+        <activity
             android:name=".changePass"
             android:exported="false" />
         <activity

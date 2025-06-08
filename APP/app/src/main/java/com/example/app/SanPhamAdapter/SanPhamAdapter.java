@@ -2,6 +2,7 @@ package com.example.app.SanPhamAdapter;
 
 import com.example.app.SanPham.SanPham;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.app.R;
+import com.example.app.utils.ChiTietSanPhamActivity;
 
 import java.util.List;
 
@@ -44,6 +46,14 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
                 .placeholder(R.drawable.left)
                 .error(R.drawable.right)
                 .into(holder.imgSanPham);
+        // THÊM xử lý sự kiện click vào item
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ChiTietSanPhamActivity.class);
+            intent.putExtra("ten", sp.getTenSanPham());
+            intent.putExtra("gia", String.valueOf(sp.getGia()));
+            intent.putExtra("hinh", sp.getHinhAnh());
+            context.startActivity(intent);
+        });
     }
 
     @Override
