@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.app.R;
-import com.example.app.utils.ChiTietSanPhamActivity;
+import com.example.app.ChiTietSanPhamActivity;
 
 import java.util.List;
 
