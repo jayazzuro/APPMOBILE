@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     SanPhamAdapter adapter, searchAdapter;
     List<SanPham> sanPhamList, searchList;
     Spinner mySpinner;
-    TextView idten;
+    TextView idten ;
     ImageView imageView;
     ImageSlider imageSlider;
     EditText searchEditText;

@@ -18,7 +18,7 @@
             android:padding="12dp">
 
             <ImageView
-                android:id="@+id/product_image"
+                android:id="@+id/imgSanPhamCart"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
@@ -30,28 +30,28 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/product_name"
+                android:id="@+id/txtTenCart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:text="Tên sản phẩm"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="@id/product_image"
-                app:layout_constraintStart_toEndOf="@id/product_image"
+                app:layout_constraintTop_toTopOf="@id/imgSanPhamCart"
+                app:layout_constraintStart_toEndOf="@id/imgSanPhamCart"
                 app:layout_constraintEnd_toStartOf="@id/btn_delete" />
 
             <TextView
-                android:id="@+id/product_price"
+                android:id="@+id/txtGiaCart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="100.000đ"
                 android:textColor="#FF0000"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp"
-                app:layout_constraintTop_toBottomOf="@id/product_name"
-                app:layout_constraintStart_toStartOf="@id/product_name"
-                app:layout_constraintEnd_toEndOf="@id/product_name" />
+                app:layout_constraintTop_toBottomOf="@id/txtTenCart"
+                app:layout_constraintStart_toStartOf="@id/txtTenCart"
+                app:layout_constraintEnd_toEndOf="@id/txtTenCart" />
 
             <Button
                 android:id="@+id/btn_decrease"
@@ -62,8 +62,8 @@
                 android:text="-"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/product_price"
-                app:layout_constraintStart_toStartOf="@id/product_name" />
+                app:layout_constraintTop_toBottomOf="@id/txtGiaCart"
+                app:layout_constraintStart_toStartOf="@id/txtTenCart" />
 
             <TextView
                 android:id="@+id/tv_quantity"
@@ -100,7 +100,7 @@
                 android:text="Xóa"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
-                app:layout_constraintTop_toTopOf="@id/product_name"
+                app:layout_constraintTop_toTopOf="@id/txtTenCart"
                 app:layout_constraintBottom_toBottomOf="@id/btn_increase"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintVertical_bias="1.0" />

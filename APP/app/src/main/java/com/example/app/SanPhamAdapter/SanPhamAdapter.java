@@ -78,6 +78,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
             imgSanPham = itemView.findViewById(R.id.imgSanPham);
             txtTen = itemView.findViewById(R.id.txtTen);
             txtGia = itemView.findViewById(R.id.txtGia);
+
         }
     }
 
