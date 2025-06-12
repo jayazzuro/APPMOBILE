@@ -8,22 +8,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.app.API.APIinsert;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
-import com.example.app.API.APIcart;
-import com.example.app.SanPham.SanPhamCart;
 
 public class ChiTietSanPhamActivity extends AppCompatActivity {
     ImageView imgChiTiet;
-    TextView txtTen, txtGia , txtChiTietmota;
-    Button txtChiTietAdd , txtChiTietBuy , btnDecrease, btnIncrease;
+    TextView txtTen, txtGia, txtChiTietmota;
+    Button btnAddToCart, txtChiTietBuy, btnDecrease, btnIncrease;
     TextView txtQuantity;
     int soLuong = 1;
-    TextView txtTen, txtGia ,txtChiTietmota;
-    Button idmua;
-
-    // ✅ Biến toàn cục để dùng trong sự kiện
-    String ten, gia, hinh ,mota;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +26,17 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
         txtTen = findViewById(R.id.txtChiTietTen);
         txtGia = findViewById(R.id.txtChiTietGia);
         txtChiTietmota = findViewById(R.id.txtChiTietmota);
-        txtChiTietAdd = findViewById(R.id.txtChiTietAdd);
+        btnAddToCart = findViewById(R.id.btnAddToCart);
         txtChiTietBuy = findViewById(R.id.txtChiTietBuy);
         btnDecrease = findViewById(R.id.btnDecrease);
         btnIncrease = findViewById(R.id.btnIncrease);
         txtQuantity = findViewById(R.id.txtQuantity);
 
-        // Nhận dữ liệu từ Intent
         String ten = getIntent().getStringExtra("tenHang");
         String gia = getIntent().getStringExtra("donGia");
         String hinh = getIntent().getStringExtra("hinhAnh");
         String mota = getIntent().getStringExtra("mota");
-        idmua = findViewById(R.id.idmua);
 
-        // ✅ Nhận dữ liệu từ Intent
-        ten = getIntent().getStringExtra("tenHang");
-        gia = getIntent().getStringExtra("donGia");
-        hinh = getIntent().getStringExtra("hinhAnh");
-        mota = getIntent().getStringExtra("mota");
         txtTen.setText(ten);
         txtGia.setText(gia + " VNĐ");
         txtChiTietmota.setText(mota);
@@ -59,21 +44,22 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
         String imageUrl = "http://10.0.2.2:3000/img/" + hinh;
         Glide.with(this).load(imageUrl).into(imgChiTiet);
 
-       btnDecrease.setOnClickListener(v -> {
-           if (soLuong > 1) {
-               soLuong--;
-               txtQuantity.setText(String.valueOf(soLuong));
-           }
-       });
+        btnDecrease.setOnClickListener(v -> {
+            if (soLuong > 1) {
+                soLuong--;
+                txtQuantity.setText(String.valueOf(soLuong));
+            }
+        });
 
         btnIncrease.setOnClickListener(v -> {
             soLuong++;
             txtQuantity.setText(String.valueOf(soLuong));
         });
+
         int userId = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
                 .getInt("userId", -1);
-        // Thêm sản phẩm vào giỏ hàng
-        txtChiTietAdd.setOnClickListener(v -> {
+
+        btnAddToCart.setOnClickListener(v -> {
             if (userId == -1) {
                 Toast.makeText(this, "Không tìm thấy ID người dùng", Toast.LENGTH_SHORT).show();
                 return;
@@ -82,9 +68,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
             String tenHang = txtTen.getText().toString();
             String donGiaStr = getIntent().getStringExtra("donGia");
             String hinhAnh = getIntent().getStringExtra("hinhAnh");
-
-
-            int donGia= Integer.parseInt(donGiaStr);
+            int donGia = Integer.parseInt(donGiaStr);
 
             APIinsert.insertToCart(
                     ChiTietSanPhamActivity.this,
@@ -94,31 +78,17 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
                     soLuong,
                     userId
             );
-            Intent intent = new Intent(this, MainActivity.class);
+
+            Intent intent = new Intent(this, cart.class);
             startActivity(intent);
         });
 
-        txtChiTietBuy.setOnClickListener(v->{
-            Intent intent = new Intent(ChiTietSanPhamActivity.this, MainActivity.class);
-
-        idmua.setOnClickListener(v -> {
-            // ✅ 1. Thêm vào giỏ hàng trong bộ nhớ
-            SanPhamCart sp = new SanPhamCart(ten, Integer.parseInt(gia), hinh);
-            CartManager.getInstance().addToCart(sp);
-
-            // ✅ 2. Gửi API để lưu vào MySQL (Node.js)
-            APIcart.themVaoGioHang(
-                    ChiTietSanPhamActivity.this,
-                    ten,
-                    Integer.parseInt(gia),
-                    "cái",        // DVT mặc định
-                    hinh,
-                    1,            // số lượng mặc định
-                    "kh01"        // mã khách hàng tạm thời (sau này có thể lấy từ SharedPreferences)
-            );
-
-            // ✅ 3. Chuyển sang giỏ hàng
-            Intent intent = new Intent(ChiTietSanPhamActivity.this, Cart.class);
+        // ✅ Gửi dữ liệu sang cart.java khi ấn "Mua"
+        txtChiTietBuy.setOnClickListener(v -> {
+            Intent intent = new Intent(ChiTietSanPhamActivity.this, cart.class);
+            intent.putExtra("tenHang", txtTen.getText().toString());
+            intent.putExtra("donGia", getIntent().getStringExtra("donGia"));
+            intent.putExtra("soLuong", soLuong);
             startActivity(intent);
         });
     }

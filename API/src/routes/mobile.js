@@ -9,7 +9,7 @@ router.get("/api/getProductApi", homeController.getProductApi);
 router.get("/api/getTheLoaiApi", homeController.getTheLoaiApi);
 router.get("/api/Search", homeController.Search);
 router.get("/api/profileApi/:id", homeController.profileApi);
-
+router.get("/api/giohang/:id", homeController.GetGioHangApi);
 router.get(
   "/api/productUploadApi",
   upload.single("image"),
@@ -21,5 +21,11 @@ router.post("/api/loginApi", homeController.loginApi);
 router.post("/api/registerApi", homeController.registerApi);
 router.post("/api/changePasswordApi/:id", homeController.changePasswordApi);
 router.post("/api/InsertProCartApi/:id", homeController.InsertProCartApi);
+
+//put
+router.put("/api/giohang/:id", homeController.updateSoLuongGioHang);
+
+//deletete giỏ hàng
+router.delete("/api/giohang/:id", homeController.deleteItemGioHang);
 
 module.exports = router;

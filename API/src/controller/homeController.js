@@ -216,6 +216,63 @@ const InsertProCartApi = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+//1. API: GET /api/giohang/:id
+const GetGioHangApi = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const [rows] = await connection.query(
+      "SELECT * FROM giohang WHERE maKH = ?",
+      [id]
+    );
+
+    res.json(rows);
+  } catch (error) {
+    console.error("Lỗi lấy giỏ hàng:", error);
+    res.status(500).json({ error: error.message });
+  }
+};
+//update so lương gio hang
+const updateSoLuongGioHang = async (req, res) => {
+  try {
+    const idCart = req.params.id;
+    const { soLuong } = req.body;
+
+    const [result] = await connection.query(
+      "UPDATE giohang SET soLuong = ? WHERE idCart = ?",
+      [soLuong, idCart]
+    );
+
+    if (result.affectedRows > 0) {
+      res.json({ message: "Cập nhật số lượng thành công" });
+    } else {
+      res.status(404).json({ error: "Không tìm thấy sản phẩm trong giỏ hàng" });
+    }
+  } catch (error) {
+    console.error("Lỗi update:", error);
+    res.status(500).json({ error: error.message });
+  }
+};
+//xóa giỏ hàng
+const deleteItemGioHang = async (req, res) => {
+  try {
+    const idCart = req.params.id;
+    console.log("Đã nhận DELETE giỏ hàng idCart =", idCart);
+    const [result] = await connection.query(
+      "DELETE FROM giohang WHERE idCart = ?",
+      [idCart]
+    );
+
+    if (result.affectedRows > 0) {
+      res.json({ message: "Xoá thành công!" });
+    } else {
+      res.status(404).json({ error: "Không tìm thấy sản phẩm!" });
+    }
+  } catch (error) {
+    console.error("Lỗi xoá giỏ hàng:", error);
+    res.status(500).json({ error: error.message });
+  }
+};
 
 module.exports = {
   getApi,
@@ -228,4 +285,7 @@ module.exports = {
   profileApi,
   changePasswordApi,
   InsertProCartApi,
+  GetGioHangApi,
+  updateSoLuongGioHang,
+  deleteItemGioHang,
 };

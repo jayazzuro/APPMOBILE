@@ -10,7 +10,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-
         <ImageView
             android:id="@+id/imgChiTiet"
             android:layout_width="match_parent"
@@ -18,7 +17,6 @@
             android:scaleType="centerCrop"
             android:background="#E0E0E0"
             android:src="@drawable/left" />
-
 
         <TextView
             android:id="@+id/txtChiTietTen"
@@ -47,7 +45,6 @@
             android:text="Mô tả chi tiết sản phẩm"
             android:textSize="16sp"
             android:textColor="#424242" />
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,16 +81,15 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-
+        <!-- ✅ Sửa ID đúng cho nút thêm giỏ hàng -->
         <Button
-            android:id="@+id/idmua"
+            android:id="@+id/btnAddToCart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="Thêm vào giỏ hàng"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:textColor="@android:color/white" />
-
 
         <Button
             android:id="@+id/txtChiTietBuy"
@@ -103,6 +99,5 @@
             android:text="Quay lại"
             android:backgroundTint="#BDBDBD"
             android:textColor="@android:color/black" />
-
     </LinearLayout>
 </ScrollView>
