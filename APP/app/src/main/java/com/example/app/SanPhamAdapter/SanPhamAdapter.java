@@ -49,9 +49,11 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
         // THÊM xử lý sự kiện click vào item
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ChiTietSanPhamActivity.class);
-            intent.putExtra("ten", sp.getTenSanPham());
-            intent.putExtra("gia", String.valueOf(sp.getGia()));
-            intent.putExtra("hinh", sp.getHinhAnh());
+            intent.putExtra("tenHang", sp.getTenSanPham());
+            intent.putExtra("donGia", String.valueOf(sp.getGia()));
+            intent.putExtra("hinhAnh", sp.getHinhAnh());
+            intent.putExtra("mota", sp.getMota());
+
             context.startActivity(intent);
         });
     }
@@ -69,7 +71,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgSanPham;
-        TextView txtTen, txtGia;
+        TextView txtTen, txtGia ;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

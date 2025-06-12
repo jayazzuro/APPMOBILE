@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btnSearch;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // Ánh xạ view
         recyclerView = findViewById(R.id.recyclerView);
         recyclerViewSearch = findViewById(R.id.recyclerViewSearch); // Thêm RecyclerView phụ trong XML

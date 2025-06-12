@@ -6,13 +6,12 @@ public class SanPham {
     private String hinhAnh;
     private String theLoai;
     private String mota;
-
-    public SanPham(String tenSanPham, int gia, String hinhAnh, String theLoai ) {
+    public SanPham(String tenSanPham, int gia, String hinhAnh, String theLoai ,String mota ) {
         this.tenSanPham = tenSanPham;
         this.gia = gia;
         this.hinhAnh = hinhAnh;
         this.theLoai = theLoai;
-
+        this.mota = mota;
     }
 
     public String getTenSanPham() {
@@ -30,7 +29,7 @@ public class SanPham {
     public String getTheLoai() {
         return theLoai;
     }
-
-
-
+    public String getMota() {
+        return mota;
+    }
 }

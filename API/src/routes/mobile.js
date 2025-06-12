@@ -20,5 +20,6 @@ router.get(
 router.post("/api/loginApi", homeController.loginApi);
 router.post("/api/registerApi", homeController.registerApi);
 router.post("/api/changePasswordApi/:id", homeController.changePasswordApi);
+router.post("/api/InsertProCartApi/:id", homeController.InsertProCartApi);
 
 module.exports = router;

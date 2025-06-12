@@ -191,6 +191,31 @@ const changePasswordApi = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+// API thêm vào giỏ hàng
+const InsertProCartApi = async (req, res) => {
+  try {
+    const id = req.params.id; // ID của khách hàng
+    const [rows] = await connection.query(
+      `select maKH from khachhang where maKH = ?`,
+      [id]
+    );
+    if (rows.length > 0) {
+      const { tenHang, donGia, hinhAnh, soLuong } = req.body;
+      const [rows1] = await connection.query(
+        `insert into giohang (tenHang, donGia ,hinhAnh,soLuong , maKH)
+         values (?, ?,?, ?, ?)`,
+        [tenHang, donGia, hinhAnh, soLuong, id]
+      );
+      if (rows1.affectedRows > 0) {
+        res.json({ message: "Thêm vào giỏ hàng thành công!", result: rows1 });
+      } else {
+        res.json({ error: "Thêm vào giỏ hàng thất bại!" });
+      }
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 module.exports = {
   getApi,
@@ -202,4 +227,5 @@ module.exports = {
   Search,
   profileApi,
   changePasswordApi,
+  InsertProCartApi,
 };

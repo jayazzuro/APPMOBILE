@@ -25,7 +25,8 @@ public class APIsanpham {
                                     obj.getString("tenHang"),
                                     obj.getInt("DonGia"),
                                     obj.getString("hinhAnh"),
-                                    obj.getString("TenTheLoai")
+                                    obj.getString("TenTheLoai"),
+                                    obj.getString("moTa")
                             ));
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -59,7 +60,8 @@ public class APIsanpham {
                                     obj.getString("tenHang"),
                                     obj.getInt("DonGia"),
                                     obj.getString("hinhAnh"),
-                                    obj.getString("TenTheLoai")
+                                    obj.getString("TenTheLoai"),
+                                    obj.getString("moTa")
                             ));
                         } catch (JSONException e) {
                             e.printStackTrace();
