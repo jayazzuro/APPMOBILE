@@ -17,7 +17,7 @@ import com.example.app.SanPhamAdapter.SanPhamAdapterCart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class cart extends AppCompatActivity {
+public class Cart extends AppCompatActivity {
     private RecyclerView recyclerViewCart;
     private SanPhamAdapterCart adapter;
     private TextView cartTotalAmount;
@@ -46,7 +46,7 @@ public class cart extends AppCompatActivity {
         }
 
         idtt.setOnClickListener(v -> {
-            Intent intent1 = new Intent(cart.this, MainActivity.class);
+            Intent intent1 = new Intent(Cart.this, MainActivity.class);
             startActivity(intent1);
         });
     }
