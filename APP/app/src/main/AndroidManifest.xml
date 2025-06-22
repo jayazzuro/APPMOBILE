@@ -16,7 +16,7 @@
         android:theme="@style/Theme.App"
         tools:targetApi="31" >
         <activity
-            android:name=".Cart"
+            android:name=".cart"
             android:exported="false" />
         <activity
             android:name=".ChiTietSanPhamActivity"

@@ -96,12 +96,12 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
             // ✅ Gọi cập nhật sau khi thêm vào giỏ
             loadCartCount(userId);
 
-            Intent intent = new Intent(this, Cart.class);
+            Intent intent = new Intent(this, cart.class);
             startActivity(intent);
         });
 
         txtChiTietBuy.setOnClickListener(v -> {
-            Intent intent = new Intent(ChiTietSanPhamActivity.this, Cart.class);
+            Intent intent = new Intent(ChiTietSanPhamActivity.this, cart.class);
             intent.putExtra("tenHang", txtTen.getText().toString());
             intent.putExtra("donGia", getIntent().getStringExtra("donGia"));
             intent.putExtra("soLuong", soLuong);
