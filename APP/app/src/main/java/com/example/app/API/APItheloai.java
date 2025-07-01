@@ -8,7 +8,7 @@ import org.json.*;
 import java.util.ArrayList;
 import java.util.List;
 public class APItheloai {
-    private static final String URL = "http://10.0.2.2:3000/api/getTheLoaiApi";
+    private static final String URL = "http://192.168.1.129:3000/api/getTheLoaiApi";
 
     public static void loadSpinner(Context context, Spinner spinner) {
         RequestQueue queue = Volley.newRequestQueue(context);

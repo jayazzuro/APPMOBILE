@@ -22,7 +22,7 @@ import java.util.List;
 
 public class APIcart {
 
-    private static final String URL = "http://10.0.2.2:3000/api/getProductApi";
+    private static final String URL = "http://192.168.1.129:3000/api/getProductApi";
 
     public static void loadProducts(Context context, List<SanPham> list, SanPhamAdapter adapter) {
         RequestQueue queue = Volley.newRequestQueue(context);
@@ -53,7 +53,7 @@ public class APIcart {
 
     public static void loadGioHang(Context context, int maKH, List<SanPhamCart> list,
                                    SanPhamAdapterCart adapter, TextView totalAmountView) {
-        String url = "http://10.0.2.2:3000/api/giohang/" + maKH;
+        String url = "http://192.168.1.129:3000/api/giohang/" + maKH;
         RequestQueue queue = Volley.newRequestQueue(context);
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,

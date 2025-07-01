@@ -51,7 +51,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
         txtGia.setText(gia + " VNĐ");
         txtChiTietmota.setText(mota);
 
-        String imageUrl = "http://10.0.2.2:3000/img/" + hinh;
+        String imageUrl = "http://192.168.1.129:3000/img/" + hinh;
         Glide.with(this).load(imageUrl).into(imgChiTiet);
 
         btnDecrease.setOnClickListener(v -> {
@@ -111,7 +111,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
 
     // ✅ API: Đếm sản phẩm trong giỏ và cập nhật cartBadge
     private void loadCartCount(int maKH) {
-        String url = "http://10.0.2.2:3000/api/giohang/" + maKH;
+        String url = "http://192.168.1.129:3000/api/giohang/" + maKH;
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,

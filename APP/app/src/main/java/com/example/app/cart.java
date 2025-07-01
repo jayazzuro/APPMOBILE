@@ -21,7 +21,7 @@ public class cart extends AppCompatActivity {
     private RecyclerView recyclerViewCart;
     private SanPhamAdapterCart adapter;
     private TextView cartTotalAmount;
-    Button idtt;
+    Button idtt,btnCheckOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class cart extends AppCompatActivity {
         idtt = findViewById(R.id.idtt);
         recyclerViewCart = findViewById(R.id.recyclerViewCart);
         cartTotalAmount = findViewById(R.id.cart_total_amount);
+        btnCheckOut = findViewById(R.id.cart_checkout_button);
 
         SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         int maKH = prefs.getInt("userId", -1);
@@ -48,6 +49,10 @@ public class cart extends AppCompatActivity {
         idtt.setOnClickListener(v -> {
             Intent intent1 = new Intent(cart.this, MainActivity.class);
             startActivity(intent1);
+        });
+        btnCheckOut.setOnClickListener(v -> {
+            Intent intent = new Intent(cart.this, CheckOutActivity.class);
+            startActivity(intent);
         });
     }
 }

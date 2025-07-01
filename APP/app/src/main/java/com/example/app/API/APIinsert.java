@@ -23,7 +23,7 @@ public class APIinsert {
                                     , String hinhAnh,
                                     int soLuong , int userId) {
 
-        String url = "http://10.0.2.2:3000/api/InsertProCartApi/" + userId;
+        String url = "http://192.168.1.129:3000/api/InsertProCartApi/" + userId;
 
         Map<String, Object> params = new HashMap<>();
         params.put("tenHang", tenHang);

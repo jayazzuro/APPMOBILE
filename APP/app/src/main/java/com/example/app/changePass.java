@@ -21,7 +21,7 @@ public class changePass extends AppCompatActivity {
     Button btnChangePass;
 
 
-    private static final String API_URL = "http://10.0.2.2:3000/api/changePasswordApi";
+    private static final String API_URL = "http://192.168.1.129:3000/api/changePasswordApi";
     private static final String TAG = "ChangePassActivity";
 
     @Override

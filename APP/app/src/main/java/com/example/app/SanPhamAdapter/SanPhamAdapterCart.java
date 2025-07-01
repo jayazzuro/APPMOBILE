@@ -33,7 +33,7 @@ public class SanPhamAdapterCart extends RecyclerView.Adapter<SanPhamAdapterCart.
 
     // 👇 thêm hàm này vào ngay trong class SanPhamAdapterCart (sau updateSoLuongOnServer hoặc dưới cùng)
     private void deleteFromServer(int idCart) {
-        String url = "http://10.0.2.2:3000/api/giohang/" + idCart;
+        String url = "http://192.168.1.129:3000/api/giohang/" + idCart;
 
         StringRequest request = new StringRequest(Request.Method.DELETE, url,
                 response -> {
@@ -71,7 +71,7 @@ public class SanPhamAdapterCart extends RecyclerView.Adapter<SanPhamAdapterCart.
         holder.txtGia.setText(formatCurrency(sp.getGia() * sp.getSoLuong()));
 
         Glide.with(context)
-                .load("http://10.0.2.2:3000/img/" + sp.getHinhAnh())
+                .load("http://192.168.1.129:3000/img/" + sp.getHinhAnh())
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.imgSanPham);
 

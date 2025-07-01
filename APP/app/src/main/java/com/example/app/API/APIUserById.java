@@ -16,7 +16,7 @@ public class APIUserById {
     private static final String TAG = "ProfileUser";
     public static void getUserById(Context context, int userId, TextView idten, TextView idmail) {
         if (userId != -1) {
-            String url = "http://10.0.2.2:3000/api/profileApi/" + userId;
+            String url = "http://192.168.1.129:3000/api/profileApi/" + userId;
             RequestQueue requestQueue = Volley.newRequestQueue(context);
 
             JsonArrayRequest request = new JsonArrayRequest(

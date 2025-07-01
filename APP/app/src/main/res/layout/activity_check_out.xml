@@ -1,0 +1,70 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:text="Xác nhận Thanh Toán"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:text="Tổng tiền: 0 VND"
+        android:textColor="#E91E63"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/paymentMethodGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <RadioButton
+            android:id="@+id/radioCOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COD" />
+
+        <RadioButton
+            android:id="@+id/radioVNPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VNPay"
+            android:layout_marginStart="20dp" />
+
+        <RadioButton
+            android:id="@+id/radioMoMo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MoMo"
+            android:layout_marginStart="20dp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConfirmPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xác nhận thanh toán"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#673AB7"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>

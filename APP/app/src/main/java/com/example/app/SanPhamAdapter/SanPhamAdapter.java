@@ -38,9 +38,10 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
     public void onBindViewHolder(@NonNull SanPhamAdapter.ViewHolder holder, int position) {
         SanPham sp = sanPhamList.get(position);
         holder.txtTen.setText(sp.getTenSanPham());
-        holder.txtGia.setText(sp.getGia() + " VNĐ");
+        String giaFormatted = String.format("%,d", sp.getGia()).replace(',', '.') + " VNĐ";
+        holder.txtGia.setText(giaFormatted);
 
-        String imageUrl = "http://10.0.2.2:3000/img/" + sp.getHinhAnh();
+        String imageUrl = "http://192.168.1.129:3000/img/" + sp.getHinhAnh();
         Glide.with(context)
                 .load(imageUrl)
                 .placeholder(R.drawable.left)

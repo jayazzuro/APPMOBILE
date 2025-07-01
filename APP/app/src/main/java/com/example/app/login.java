@@ -23,7 +23,7 @@ public class login extends AppCompatActivity {
     RequestQueue requestQueue;
 
     private static final String TAG = "LoginExample";
-    private static final String API_URL = "http://10.0.2.2:3000/api/loginApi";
+    private static final String API_URL = "http://192.168.1.129:3000/api/loginApi";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

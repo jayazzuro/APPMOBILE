@@ -16,6 +16,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("https://vnpay-sdk.s3-ap-southeast-1.amazonaws.com/android/maven")
+        }
     }
 }
 

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     ImageSlider imageSlider;
     EditText searchEditText;
-    ImageButton btnSearch;
+    ImageButton btnSearch, btnCart;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         searchEditText = findViewById(R.id.searchEditText);
         btnSearch = findViewById(R.id.btnSearch);
         cartBadge = findViewById(R.id.cartBadge);
+        btnCart = findViewById(R.id.btnCart);
 
         sanPhamList = new ArrayList<>();
         adapter = new SanPhamAdapter(this, sanPhamList);
@@ -69,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
         APIsanpham.loadProducts(this, sanPhamList, adapter);
         APItheloai.loadSpinner(this, mySpinner);
+
+        btnCart.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, cart.class);
+            startActivity(intent);
+        });
 
         mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -112,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadCartCount(int maKH) {
-        String url = "http://10.0.2.2:3000/api/giohang/" + maKH;
+        String url = "http://192.168.1.129:3000/api/giohang/" + maKH;
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,

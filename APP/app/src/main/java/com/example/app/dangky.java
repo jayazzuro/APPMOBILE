@@ -26,7 +26,7 @@ public class dangky extends AppCompatActivity {
     RequestQueue requestQueue;
 
     private static final String TAG = "RegisterActivity";
-    private static final String API_URL = "http://10.0.2.2:3000/api/registerApi";
+    private static final String API_URL = "http://192.168.1.129:3000/api/registerApi";
 
     @SuppressLint("MissingInflatedId")
     @Override
